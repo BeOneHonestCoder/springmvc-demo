@@ -13,6 +13,7 @@
 		<junit.version>4.10</junit.version>
 		<javax.servlet.version>3.1.0</javax.servlet.version>
 		<org.springframework.version>4.1.6.RELEASE</org.springframework.version>
+		<mysql.version>5.1.38</mysql.version>
 	</properties>
 
 	<dependencies>
@@ -47,6 +48,12 @@
 			<artifactId>spring-test</artifactId>
 			<version>${org.springframework.version}</version>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
 		</dependency>
 
 	</dependencies>

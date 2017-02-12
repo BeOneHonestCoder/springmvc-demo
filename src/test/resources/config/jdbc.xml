@@ -32,7 +32,16 @@
 		<property name="driverClassName" value="${dbDriverClassName}" />
 		<property name="url" value="${dbUrl}" />
 		<property name="username" value="${dbUsername}" />
-		<property name="password" value="${dbPassword}" />
+		<property name="password" ref="dbPassword" />
+	</bean>
+	
+	<bean id="dbPassword" factory-bean="textEncrypter"
+		factory-method="decrypt">
+		<constructor-arg index="0" value="${dbPassword}" />
+	</bean>
+
+	<bean id="textEncrypter" class="com.net.utils.TextEncrypter">
+		<constructor-arg index="0" value="DES" />
 	</bean>
 
 </beans>

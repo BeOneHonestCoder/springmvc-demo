@@ -78,13 +78,13 @@ public class TextEncrypter {
 	public static void main(String[] paramArrayOfString) {
 		
 		String str = "4sowwAnt2fY=";
-//		try {
-//			TextEncrypter localTextEncrypter = new TextEncrypter(DES_ENCRYPTION_ALGORITHM);
-//			str = localTextEncrypter.encrypt("123456");
-//			System.out.println(generateKey() + " Encrypted Text :: " + str);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+			TextEncrypter localTextEncrypter = new TextEncrypter(DES_ENCRYPTION_ALGORITHM);
+			str = localTextEncrypter.encrypt("123456");
+			System.out.println(generateKey() + " Encrypted Text :: " + str + "---");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 		try {

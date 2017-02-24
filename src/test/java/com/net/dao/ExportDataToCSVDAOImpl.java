@@ -24,6 +24,14 @@ public class ExportDataToCSVDAOImpl implements ExportDataToCSVDAO {
 	private List<Map<String, String>> columns;
 
 	private String baseDir = "/src/test/java/com/net/dao/";
+	//C:\Users\lenovo\git\springmvc-demo
+	private String userDir = System.getProperty("user.dir");
+	
+	private String lineSeparator = "\r\n";
+	
+	private static final String STATEMENT_ID = "STATEMENT ID";
+
+	private static final String TABLE_NAME = "TABLE NAME";
 
 	public ExportDataToCSVDAOImpl() {
 		super();
@@ -35,8 +43,8 @@ public class ExportDataToCSVDAOImpl implements ExportDataToCSVDAO {
 		PrintWriter printer = null;
 		printer = getDefaultPrinter(fileName);
 
-		buf.append("STATEMENT ID," + stateMentId + "\r\n");
-		buf.append("TABLE NAME," + tableName + "\r\n");
+		buf.append(STATEMENT_ID + "," + stateMentId + lineSeparator);
+		buf.append(TABLE_NAME + "," + tableName + lineSeparator);
 
 		List<Map<String, Object>> result = jdbcTemplate.queryForList(sql);
 		if (result != null && result.size() > 0) {
@@ -47,7 +55,7 @@ public class ExportDataToCSVDAOImpl implements ExportDataToCSVDAO {
 					buf.append(key + ",");
 					columns.add(tempMap);
 				}
-				buf.append("\r\n");
+				buf.append(lineSeparator);
 				break;
 
 			}
@@ -58,9 +66,9 @@ public class ExportDataToCSVDAOImpl implements ExportDataToCSVDAO {
 				for (Map<String, String> columnMap : columns) {
 					buf.append(gernateString(map, columnMap));
 				}
-				buf.append("\r\n");
+				buf.append(lineSeparator);
 			}
-			buf.append("\r\n");
+			buf.append(lineSeparator);
 
 			try {
 				printer.append(buf);
@@ -122,10 +130,7 @@ public class ExportDataToCSVDAOImpl implements ExportDataToCSVDAO {
 		return printer;
 	}
 
-	public File buildCSVPath(String fileName) {
-		//project path
-		String userDir = System.getProperty("user.dir");
-		
+	public File buildCSVPath(String fileName) {	
 		File baseFile = new File(userDir+baseDir);
 		if (!baseFile.exists()) {
 			baseFile.mkdirs();
@@ -155,8 +160,6 @@ public class ExportDataToCSVDAOImpl implements ExportDataToCSVDAO {
 	}
 
 	public void clearData(String fileName) {
-		//project path
-		String userDir = System.getProperty("user.dir");
 		File defaultFile = new File(userDir+baseDir + fileName);
 		if (defaultFile.exists()) {
 			StringBuffer buf = new StringBuffer();

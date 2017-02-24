@@ -6,9 +6,13 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
+import com.net.util.DataGenerationUtil;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:/config/jdbc.xml" })
 @TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
 public class AbstractContextTest extends AbstractTransactionalJUnit4SpringContextTests {
+	
+	protected static DataGenerationUtil dbDataGenerationUtil;
 
 }

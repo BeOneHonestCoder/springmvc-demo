@@ -9,6 +9,8 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
 	<context:component-scan base-package="com.net"></context:component-scan>
+	
+	<context:property-placeholder location="classpath:mainConfig/jdbc.properties" ignore-unresolvable="true" />
 
 	<bean id="txManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

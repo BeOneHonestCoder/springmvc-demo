@@ -15,11 +15,11 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import com.net.dao.ExportDataToCSVDAO;
 import com.net.dao.LoadCSVToDB;
 import com.net.util.DataGenerationUtil;
-import com.net.utils.LogUtils;
+import com.net.util.LogUtil;
 
 public class TestJdbc extends AbstractContextTest {
 	
-	private static Logger logger = LogUtils.getLogger();
+	private static Logger logger = LogUtil.getLogger();
 	
 	@Autowired
 	@Qualifier("namedJdbcTemplate")

@@ -1,13 +1,13 @@
-package com.net.utils;
+package com.net.util;
 
 import org.apache.log4j.Logger;
 
-public class LogUtils extends SecurityManager {
+public class LogUtil extends SecurityManager {
 
 	/**
 	 * Singleton instance of this class
 	 */
-	private static LogUtils singleton = new LogUtils();
+	private static LogUtil singleton = new LogUtil();
 
 	/**
 	 * @return name of the class from which LogUtil is invoked.

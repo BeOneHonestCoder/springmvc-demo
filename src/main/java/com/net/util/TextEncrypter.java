@@ -1,4 +1,4 @@
-package com.net.utils;
+package com.net.util;
 
 import java.io.UnsupportedEncodingException;
 import java.security.Key;

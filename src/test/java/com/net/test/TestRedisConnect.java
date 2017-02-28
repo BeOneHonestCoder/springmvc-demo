@@ -10,13 +10,14 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.net.redis.RedisMapCache;
-import com.net.utils.LogUtils;
+import com.net.util.LogIt;
+import com.net.util.LogUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:mainConfig/redis.xml" })
 public class TestRedisConnect extends AbstractJUnit4SpringContextTests {
 	
-	private static Logger logger = LogUtils.getLogger();
+	private static Logger logger = LogUtil.getLogger();
 	
 	@Autowired
 	@Qualifier("redisMapCache")
@@ -25,6 +26,12 @@ public class TestRedisConnect extends AbstractJUnit4SpringContextTests {
 	@Test
 	public void testHello(){
 		logger.info("Hello,World");
+		sayHello();
+	}
+	
+	@LogIt
+	public String sayHello(){
+		return "Hello";
 	}
 
 }

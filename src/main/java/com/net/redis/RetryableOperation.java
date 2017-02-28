@@ -4,11 +4,11 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import org.apache.log4j.Logger;
 
-import com.net.utils.LogUtils;
+import com.net.util.LogUtil;
 
 public class RetryableOperation<T> {
 	
-	private static Logger logger = LogUtils.getLogger();
+	private static Logger logger = LogUtil.getLogger();
 	private Callable<T> callable;
 	private Runnable runnable;
 

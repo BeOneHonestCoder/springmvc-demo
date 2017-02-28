@@ -13,7 +13,7 @@ import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import com.net.utils.LogUtils;
+import com.net.util.LogUtil;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
 import redis.clients.jedis.exceptions.JedisException;
@@ -21,7 +21,7 @@ import redis.clients.jedis.exceptions.JedisException;
 @Service("redisMapCache")
 public class RedisMapCache {
 
-	private static Logger logger = LogUtils.getLogger();
+	private static Logger logger = LogUtil.getLogger();
 
 	@Value("${redis.retryCount:3}")
 	private int retryCount;

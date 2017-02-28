@@ -19,11 +19,11 @@ import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.CollectionUtils;
 
-import com.net.utils.LogUtils;
+import com.net.util.LogUtil;
 
 public class DataGenerationUtil {
 
-	private static Logger logger = LogUtils.getLogger();
+	private static Logger logger = LogUtil.getLogger();
 
 	private Map<String, ArrayList<String>> statementList;
 

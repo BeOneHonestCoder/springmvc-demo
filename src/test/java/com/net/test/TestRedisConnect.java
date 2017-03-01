@@ -9,8 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.net.annotation.LogIt;
 import com.net.redis.RedisMapCache;
-import com.net.util.LogIt;
 import com.net.util.LogUtil;
 
 @RunWith(SpringJUnit4ClassRunner.class)

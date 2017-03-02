@@ -8,8 +8,6 @@
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd">
 	
-	<context:component-scan base-package="com.net"></context:component-scan>
-	
 	<context:property-placeholder location="classpath:mainConfig/jdbc.properties" ignore-unresolvable="true" />
 
 	<bean id="txManager"
@@ -40,7 +38,7 @@
 		<constructor-arg index="0" value="${dbPassword}" />
 	</bean>
 
-	<bean id="textEncrypter" class="com.net.utils.TextEncrypter">
+	<bean id="textEncrypter" class="com.net.util.TextEncrypter">
 		<constructor-arg index="0" value="DES" />
 	</bean>
 

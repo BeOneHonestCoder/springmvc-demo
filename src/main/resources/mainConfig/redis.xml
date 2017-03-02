@@ -11,8 +11,6 @@
         http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
 	<!-- Redis -->
-	<context:component-scan base-package="com.net.redis" />
-
 	<context:property-placeholder location="classpath:mainConfig/redis.properties"
 		ignore-unresolvable="true" />
 

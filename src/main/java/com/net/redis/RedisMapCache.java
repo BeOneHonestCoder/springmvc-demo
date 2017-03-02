@@ -13,6 +13,7 @@ import org.springframework.data.redis.RedisConnectionFailureException;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
+import com.net.annotation.LogIt;
 import com.net.util.LogUtil;
 
 import redis.clients.jedis.exceptions.JedisConnectionException;
@@ -69,7 +70,8 @@ public class RedisMapCache {
 			throw new JedisException(e);
 		}
 	}
-
+	
+	@LogIt
 	public Object get(final String masterKey, final String subKey) {
 		Callable<Object> callable = new Callable() {
 			public Object call() throws Exception {

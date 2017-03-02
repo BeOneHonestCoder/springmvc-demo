@@ -40,7 +40,7 @@
 		<constructor-arg index="0" value="${dbPassword}" />
 	</bean>
 
-	<bean id="textEncrypter" class="com.net.utils.TextEncrypter">
+	<bean id="textEncrypter" class="com.net.util.TextEncrypter">
 		<constructor-arg index="0" value="DES" />
 	</bean>
 

@@ -8,10 +8,10 @@ import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
-import org.springframework.beans.factory.annotation.Configurable;
+import org.springframework.stereotype.Component;
 
 @Aspect
-@Configurable
+@Component
 public class LoggerAdvice {
 	
 	@Before(value = "execution(* *(..)) && @annotation(log)", argNames = "joinPoint, log")

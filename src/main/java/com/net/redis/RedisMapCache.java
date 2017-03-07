@@ -97,7 +97,8 @@ public class RedisMapCache {
 			throw new JedisException(e);
 		}
 	}
-
+	
+	@LogIt
 	public void delete(final String masterKey, final String subKey) {
 		logger.info("Method: delete(), Redis Key: " + masterKey + " Child Key: " + subKey);
 		Runnable runnable = new Runnable() {

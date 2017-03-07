@@ -21,6 +21,8 @@
 		<redis.clients.version>2.8.0</redis.clients.version>
 		<org.aspectj.version>1.8.9</org.aspectj.version>
 		<cglib.version>3.1</cglib.version>
+		<org.apache.lucene.version>4.10.4</org.apache.lucene.version>
+		<javax.mail.version>1.4</javax.mail.version>
 	</properties>
 
 	<dependencies>
@@ -116,6 +118,35 @@
 			<artifactId>cglib</artifactId>
 			<version>${cglib.version}</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-core -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>${org.apache.lucene.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-queryparser -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>${org.apache.lucene.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.lucene/lucene-analyzers-common -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers-common</artifactId>
+			<version>${org.apache.lucene.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
+
 
 
 	</dependencies>

@@ -14,9 +14,17 @@
 	<context:component-scan base-package="com.net"></context:component-scan>
 	
 	<!-- spring aop -->
-	<aop:aspectj-autoproxy proxy-target-class="true"/>
+	<aop:aspectj-autoproxy/>
 	
 	<import resource="classpath:mainConfig/redis.xml" />
 	<import resource="classpath:mainConfig/jdbc.xml" />
+	
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			 <list>
+				<value>classpath:mainConfig/spring-common.properties</value>				
+			</list> 
+		</property>
+	</bean>
 
 </beans>

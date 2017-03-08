@@ -5,6 +5,12 @@ public class ExtractEvent {
 	private String extractFilePath;
 	private String finalFileName;
 
+	public ExtractEvent(String extractFilePath, String finalFileName) {
+		super();
+		this.extractFilePath = extractFilePath;
+		this.finalFileName = finalFileName;
+	}
+
 	public String getExtractFilePath() {
 		return extractFilePath;
 	}

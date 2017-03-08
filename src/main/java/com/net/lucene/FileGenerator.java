@@ -1,7 +1,5 @@
 package com.net.lucene;
 
-import java.sql.Date;
-import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -26,11 +24,7 @@ public class FileGenerator implements Runnable {
 	public void run() {
 		try {
 			for (Map<String, Object> row : rows) {
-				final int id = (Integer) row.get("ID");
-				final String name = (String) row.get("NAME");
-				final Date birthday = (Date) row.get("BIRTHDAY");
-				final Timestamp createTs = (Timestamp) row.get("CREATETS");
-
+				luceneHelperImpl.writeIndexFile(row, event.getExtractFilePath());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -40,10 +34,6 @@ public class FileGenerator implements Runnable {
 				notifierObject.notify();
 			}
 		}
-	}
-
-	private void writeExtractFile() {
-
 	}
 
 }

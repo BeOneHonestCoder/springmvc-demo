@@ -2,7 +2,6 @@ package com.net.lucene;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
@@ -13,9 +12,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 import com.net.dao.ReadDAO;
 
+@Service("extractTask")
 public class ExtractTask {
 
 	@Value("${fileThreads}")
@@ -65,7 +66,7 @@ public class ExtractTask {
 
 		final AtomicInteger counterDown = new AtomicInteger(0);
 		final Object notifierObject = new Object();
-		final String retrieveSql = "select id,name,birthday,create_ts from user_dtl";
+		final String retrieveSql = "select id,name,birthday,createts from user_dtl";
 
 		ResultSet rs = null;
 		try {

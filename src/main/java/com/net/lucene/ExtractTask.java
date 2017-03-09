@@ -1,5 +1,6 @@
 package com.net.lucene;
 
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -53,6 +54,8 @@ public class ExtractTask {
 
 			// new method for file generation in multi thread
 			generateText(textExecutorService, event, pageSize);
+			// delete lucene file
+			deleteExtractFile(event);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -128,6 +131,17 @@ public class ExtractTask {
 			luceneHelperImpl.closeIndexSearchers();
 		}
 
+	}
+	
+	private void deleteExtractFile(ExtractEvent event){
+		final String extractFilePath = event.getExtractFilePath();
+		final File extractFile = new File(extractFilePath);
+		if (extractFile.exists()) {
+			for (File file : extractFile.listFiles()) {
+				file.delete();
+			}
+			extractFile.delete();
+		}
 	}
 
 }

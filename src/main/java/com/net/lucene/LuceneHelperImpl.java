@@ -29,6 +29,8 @@ import org.apache.lucene.util.ThreadInterruptedException;
 import org.apache.lucene.util.Version;
 import org.springframework.stereotype.Component;
 
+import com.net.annotation.LogLevel;
+import com.net.annotation.Timer;
 import com.net.util.LogUtil;
 
 @Component("luceneHelperImpl")
@@ -89,6 +91,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 	 * @param subscriptionProductString
 	 * @param recordTypeList
 	 */
+	@Timer(log = LogLevel.INFO)
 	public void writeIndexFile(final Map<String, Object> row, final String extractFilePath) {
 		File indexFile;
 		Directory index;

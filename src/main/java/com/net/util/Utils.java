@@ -1,8 +1,10 @@
-package com.net.annotation;
+package com.net.util;
 
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
+
+import com.net.annotation.LogLevel;
 
 public class Utils {
 	

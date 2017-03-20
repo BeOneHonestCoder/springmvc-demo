@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UserInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./UserInfo.xsd">
+
+	<Users>
+		<User id="1">
+			<Name>zhang san</Name>
+			<Sex>m</Sex>
+		</User>
+	</Users>
+
+
+</UserInfo>
+		

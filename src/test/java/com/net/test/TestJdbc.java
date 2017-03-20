@@ -45,7 +45,7 @@ public class TestJdbc extends AbstractContextTest {
 	
 	@Test
 	public void testHello(){
-		logger.info("Hello,World");
+		logger.error("Hello,World");
 	}
 	
 	@Test

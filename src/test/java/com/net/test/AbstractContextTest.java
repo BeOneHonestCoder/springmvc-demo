@@ -1,16 +1,17 @@
 package com.net.test;
 
+import com.net.util.DataGenerationUtil;
 import org.junit.runner.RunWith;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.net.util.DataGenerationUtil;
-
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @ContextConfiguration(locations = { "classpath:mainConfig/spring-common.xml" })
-@TransactionConfiguration(transactionManager = "txManager", defaultRollback = true)
+@Transactional(transactionManager = "txManager")
+@Rollback
 public class AbstractContextTest extends AbstractTransactionalJUnit4SpringContextTests {
 	
 	protected static DataGenerationUtil dbDataGenerationUtil;

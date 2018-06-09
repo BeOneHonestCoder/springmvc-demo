@@ -100,7 +100,8 @@ public class ReadDAOImpl implements ReadDAO {
 			int count = 0;
 			rows = new ArrayList<Map<String, Object>>(recordChunkSize);
 			while (count < recordChunkSize && rs.next()) {
-				HashMap<String, Object> row = new LinkedCaseInsensitiveMap<Object>(columns);
+				//HashMap<String, Object> row = new LinkedCaseInsensitiveMap<Object>(columns);
+				HashMap<String, Object> row = new HashMap<String, Object>(columns);
 				for (int i = 1; i <= columns; ++i) {
 					row.put(md.getColumnLabel(i), rs.getObject(i));
 				}

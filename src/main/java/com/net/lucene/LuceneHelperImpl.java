@@ -1,14 +1,8 @@
 package com.net.lucene;
 
-import java.io.File;
-import java.io.IOException;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
-
+import com.net.annotation.LogLevel;
+import com.net.annotation.Timer;
+import com.net.util.LogUtil;
 import org.apache.log4j.Logger;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
@@ -17,21 +11,22 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.document.Field.Store;
 import org.apache.lucene.document.FieldType;
 import org.apache.lucene.document.StringField;
-import org.apache.lucene.index.CorruptIndexException;
-import org.apache.lucene.index.DirectoryReader;
-import org.apache.lucene.index.IndexReader;
-import org.apache.lucene.index.IndexWriter;
-import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.*;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.ThreadInterruptedException;
-import org.apache.lucene.util.Version;
 import org.springframework.stereotype.Component;
 
-import com.net.annotation.LogLevel;
-import com.net.annotation.Timer;
-import com.net.util.LogUtil;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 @Component("luceneHelperImpl")
 public class LuceneHelperImpl implements LuceneHelper {
@@ -58,7 +53,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 				synchronized (this) {
 					if (null == searcher) {
 						splitFileDirectory = new File(extractFilePath);
-						directory = FSDirectory.open(splitFileDirectory);
+						directory = FSDirectory.open(Paths.get(extractFilePath));
 						indexReader = DirectoryReader.open(directory);
 						searcher = new IndexSearcher(indexReader);
 						indexDirectoryHolder.putIfAbsent(extractFilePath, directory);
@@ -110,9 +105,9 @@ public class LuceneHelperImpl implements LuceneHelper {
 							deleteFiles(indexFile);
 						}
 
-						index = FSDirectory.open(indexFile);
+						index = FSDirectory.open(Paths.get(extractFilePath));
 						Analyzer analyzer = new StandardAnalyzer();
-						final IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_4_10_4, analyzer);
+						final IndexWriterConfig config = new IndexWriterConfig(analyzer);
 
 						indexWriter = new IndexWriter(index, config);
 						if (index.listAll().length != 0) {
@@ -136,7 +131,7 @@ public class LuceneHelperImpl implements LuceneHelper {
 				String toStringValue = null;
 				Field field = null;
 				FieldType subDataTextFieldType = new FieldType();
-				subDataTextFieldType.setIndexed(false);
+				//subDataTextFieldType.setIndexed(false);
 				subDataTextFieldType.setOmitNorms(true);
 				subDataTextFieldType.setStored(true);
 				subDataTextFieldType.setTokenized(false);

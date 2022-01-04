@@ -15,7 +15,7 @@
 		<org.springframework.version>4.3.17.RELEASE</org.springframework.version>
 		<mysql.version>8.0.16</mysql.version>
 		<commons-codec.version>1.10</commons-codec.version>
-		<log4j.version>2.13.3</log4j.version>
+		<log4j.version>2.17.1</log4j.version>
 		<org.apache.commons.version>3.4</org.apache.commons.version>
 		<org.springframework.data.version>1.5.0.RELEASE</org.springframework.data.version>
 		<redis.clients.version>2.8.0</redis.clients.version>
